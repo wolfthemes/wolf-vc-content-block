@@ -110,7 +110,19 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function __construct() {
 
-			if ( ! class_exists( 'Vc_Manager' ) ) {
+			if ( $this->not_ok_bro() ) {
+
+				$log = esc_html__( 'Sorry, but you can not use Wolf VC plugin with this theme.', '%TEXTDOMAIN%' );
+
+				trigger_error( $log );
+
+				return false;
+			}
+
+			// Check if Visual Composer is installed
+			if ( ! defined( 'WPB_VC_VERSION' ) ) {
+				// Display notice that Visual Composer is required
+				add_action( 'admin_notices', array( $this, 'show_vc_missing_notice' ) );
 				return;
 			}
 
@@ -119,6 +131,20 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$this->init_hooks();
 
 			do_action( 'wolf_vc_content_block_loaded' );
+		}
+
+		/**
+		 * Show notice if your plugin is activated but Visual Composer is not
+		 */
+		public function show_vc_missing_notice() {
+			$plugin_data = get_plugin_data( __FILE__ );
+			echo '<div class="updated">
+				<p>' . sprintf(
+					__('<strong>%s</strong> requires <strong><a href="%s" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', '%TEXTDOMAIN%' ),
+						$plugin_data['Name'],
+						'https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=wolf-themes'
+					) . '</p>
+			</div>';
 		}
 
 		/**
@@ -303,6 +329,16 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( __FILE__ ) );
+		}
+
+		/**
+		 * Not OK bro
+		 * @return bool
+		 */
+		private function not_ok_bro() {
+			$ok = array( 'wolf-lite', 'protheme', 'loud' );
+
+			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}
 	} // end class
 } // end class check
