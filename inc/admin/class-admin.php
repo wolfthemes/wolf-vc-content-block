@@ -2,7 +2,7 @@
 /**
  * %NAME% Admin.
  *
- * @class WVC_Admin
+ * @class Wolf_Vc_Content_Block_Admin
  * @author %AUTHOR%
  * @category Admin
  * @package %PACKAGENAME%/Admin

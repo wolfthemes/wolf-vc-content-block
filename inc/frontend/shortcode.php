@@ -1,6 +1,6 @@
 <?php
 /**
- * Content Block Shortcode shortcode
+ * Content Block Shortcode
  *
  * @author %AUTHOR%
  * @category Frontend
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'wvb_shortcode' ) ) {
 	/**
-	 * YouTube shortcode
+	 * Content Block Shortcode
 	 *
 	 * @param array $atts
 	 * @return string

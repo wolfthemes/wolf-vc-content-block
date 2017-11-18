@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		grunt.task.run( [
 			'markdown:log',
 			'string-replace',
-			'replace:doc'
+			//'replace:doc'
 		] );
 	} );
 };

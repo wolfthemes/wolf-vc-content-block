@@ -1,13 +1,13 @@
-== Wolf VC Content Block ==
+== Wolf WPBPB Content Blocks ==
 Contributors: WolfThemes
 Tags: page builder
 Requires at least: 4.5
 Tested up to: 4.7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A WordPress plugin to create Visual Composer blocks.
+A WordPress plugin to create WPBakery Page Builder blocks.
 
 == Description ==
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Wolf VC Content Block
+ * Plugin Name: Wolf WPBPB Content Blocks
  * Plugin URI: %LINK%
  * Description: %DESCRIPTION%
  * Version: %VERSION%
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * Ensures only one instance of %NAME% is loaded or can be loaded.
 		 *
 		 * @static
-		 * @see WVC()
+		 * @see WVCCB()
 		 * @return %NAME% - Main instance
 		 */
 		public static function instance() {
@@ -111,17 +111,11 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		public function __construct() {
 
 			if ( $this->not_ok_bro() ) {
-
-				$log = esc_html__( 'Sorry, but you can not use Wolf VC plugin with this theme.', '%TEXTDOMAIN%' );
-
-				trigger_error( $log );
-
-				return false;
+				add_action( 'admin_notices', array( $this, 'show_not_ok_bro_notice' ) );
+				return;
 			}
 
-			// Check if Visual Composer is installed
 			if ( ! defined( 'WPB_VC_VERSION' ) ) {
-				// Display notice that Visual Composer is required
 				add_action( 'admin_notices', array( $this, 'show_vc_missing_notice' ) );
 				return;
 			}
@@ -138,11 +132,24 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function show_vc_missing_notice() {
 			$plugin_data = get_plugin_data( __FILE__ );
-			echo '<div class="updated">
+			echo '<div class="notice notice-info">
 				<p>' . sprintf(
-					__('<strong>%s</strong> requires <strong><a href="%s" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', '%TEXTDOMAIN%' ),
+					__('<strong>%s</strong> requires <strong><a href="%s" target="_blank">Visual Composer</a></strong> and <strong>Wolf Visual Composer</strong> plugins to be installed and activated on your site.', '%TEXTDOMAIN%' ),
 						$plugin_data['Name'],
 						'https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=wolf-themes'
+					) . '</p>
+			</div>';
+		}
+
+		/**
+		 * Show notice if your plugin is activated but Visual Composer is not
+		 */
+		public function show_not_ok_bro_notice() {
+			$plugin_data = get_plugin_data( __FILE__ );
+			echo '<div class="notice notice-info">
+				<p>' . sprintf(
+					wp_kses_post( __( 'Sorry, but <strong>%s</strong> will not work with this theme.','%TEXTDOMAIN%' ) ),
+						$plugin_data['Name']
 					) . '</p>
 			</div>';
 		}
@@ -299,7 +306,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function add_no_follow_tag() {
 			if ( is_singular( 'wvc_content_block' ) ) {
-				echo "<!-- WolfVCContentBlock No Follow -->" . "\n";
+				echo "<!-- WolfWPBPBContentBlock No Follow -->" . "\n";
 				echo '<meta name="robots" content="noindex,follow" />' . "\n";
 			}
 		}
@@ -336,7 +343,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * @return bool
 		 */
 		private function not_ok_bro() {
-			$ok = array( 'wolf-lite', 'protheme', 'loud' );
+			$ok = array( 'wolf-lite', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}

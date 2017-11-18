@@ -23,8 +23,8 @@ $labels = array(
 	'new_item' => esc_html__( 'New Content Block', '%TEXTDOMAIN%' ),
 	'view_item' => esc_html__( 'View Content Block', '%TEXTDOMAIN%' ),
 	'search_items' => esc_html__( 'Search Content Blocks', '%TEXTDOMAIN%' ),
-	'not_found' => esc_html__( 'No Content Blocks found', '%TEXTDOMAIN%' ),
-	'not_found_in_trash' => esc_html__( 'No Content Blocks found in Trash', '%TEXTDOMAIN%' ),
+	'not_found' => esc_html__( 'No content block found', '%TEXTDOMAIN%' ),
+	'not_found_in_trash' => esc_html__( 'No content block found in Trash', '%TEXTDOMAIN%' ),
 	'parent_item_colon' => '',
 	'menu_name' => esc_html__( 'Content Block', '%TEXTDOMAIN%' ),
 );
@@ -44,7 +44,7 @@ $args = array(
 	'taxonomies' => array(),
 	'supports' => array( 'title', 'editor' ),
 	'exclude_from_search' => false,
-	'description' => esc_html__( 'Present your work', '%TEXTDOMAIN%' ),
+	'description' => esc_html__( 'Re-usable content for Visual Composer', '%TEXTDOMAIN%' ),
 	'menu_icon' => 'dashicons-editor-table',
 );
 
