@@ -92,20 +92,6 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		}
 
 		/**
-		 * Cloning is forbidden.
-		 */
-		public function __clone() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '%TEXTDOMAIN%' ), '1.0' );
-		}
-
-		/**
-		 * Unserializing instances of this class is forbidden.
-		 */
-		public function __wakeup() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', '%TEXTDOMAIN%' ), '1.0' );
-		}
-
-		/**
 		 * %NAME% Constructor.
 		 */
 		public function __construct() {
@@ -128,13 +114,13 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		}
 
 		/**
-		 * Show notice if your plugin is activated but Visual Composer is not
+		 * Show notice if your plugin is activated but WPBakery Page Builder is not
 		 */
 		public function show_vc_missing_notice() {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-info">
 				<p>' . sprintf(
-					__('<strong>%s</strong> requires <strong><a href="%s" target="_blank">Visual Composer</a></strong> and <strong>Wolf Visual Composer</strong> plugins to be installed and activated on your site.', '%TEXTDOMAIN%' ),
+					__('<strong>%s</strong> requires <strong><a href="%s" target="_blank">WPBakery Page Builder</a></strong> and <strong>Wolf WPBakery Page Builder</strong> plugins to be installed and activated on your site.', '%TEXTDOMAIN%' ),
 						$plugin_data['Name'],
 						'https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=wolf-themes'
 					) . '</p>
@@ -142,7 +128,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		}
 
 		/**
-		 * Show notice if your plugin is activated but Visual Composer is not
+		 * Show notice if your plugin is activated but WPBakery Page Builder is not
 		 */
 		public function show_not_ok_bro_notice() {
 			$plugin_data = get_plugin_data( __FILE__ );
@@ -343,7 +329,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * @return bool
 		 */
 		private function not_ok_bro() {
-			$ok = array( 'wolf-lite', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares' );
+			$ok = array( 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}
