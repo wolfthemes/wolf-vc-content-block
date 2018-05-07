@@ -20,7 +20,7 @@
  * Verified customers however, who have purchased a premium theme
  * at https://themeforest.net/user/Wolf-Themes/portfolio?ref=Wolf-Themes
  * will have access to support for this plugin in the forums
- * https://help.wolfthemes.com/
+ * https://wolfthemes.ticksy.com/
  *
  * Copyright (C) 2017 Constantin Saguin
  * This WordPress Plugin is a free software: you can redistribute it and/or modify
@@ -118,11 +118,13 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function show_vc_missing_notice() {
 			$plugin_data = get_plugin_data( __FILE__ );
-			echo '<div class="notice notice-info">
+			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					__('<strong>%s</strong> requires <strong><a href="%s" target="_blank">WPBakery Page Builder</a></strong> and <strong>Wolf WPBakery Page Builder</strong> plugins to be installed and activated on your site.', '%TEXTDOMAIN%' ),
+					wp_kses_post( __('<strong>%s</strong> requires <strong><a href="%s" target="_blank">%s</a></strong> plugin to be installed and activated.', '%TEXTDOMAIN%' ) ),
 						$plugin_data['Name'],
-						'https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=wolf-themes'
+						'https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=wolf-themes',
+						'WPBakery Page Builder',
+						'Wolf WPBakery Page Builder Extension'
 					) . '</p>
 			</div>';
 		}
@@ -132,10 +134,14 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function show_not_ok_bro_notice() {
 			$plugin_data = get_plugin_data( __FILE__ );
-			echo '<div class="notice notice-info">
+			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					wp_kses_post( __( 'Sorry, but <strong>%s</strong> will not work with this theme.','%TEXTDOMAIN%' ) ),
-						$plugin_data['Name']
+					wp_kses_post( __( 'Sorry, but %s only works with compatible <a target="_blank" href="%s">%s themes</a>.<br><strong>Be sure that you didn\'t change the theme\'s name in the %s file or the theme\'s folder name</strong>.<br>If you want to customize the theme\'s name, you can use a <a target="_blank" href="%s">child theme</a>.', '%TEXTDOMAIN%' ) ),
+						$plugin_data['Name'],
+						'https://themeforest.net/user/wolf-themes/portfolio?ref=wolf-themes',
+						'WolfThemes',
+						'style.css',
+						'https://wolfthemes.ticksy.com/article/11659/'
 					) . '</p>
 			</div>';
 		}
@@ -329,7 +335,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * @return bool
 		 */
 		private function not_ok_bro() {
-			$ok = array( 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick' );
+			$ok = array( 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}

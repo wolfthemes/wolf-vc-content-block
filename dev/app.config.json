@@ -1,6 +1,6 @@
 {
-	"version" : "1.0.5",
-	"updated" : "2018-03-04",
+	"version" : "1.0.7",
+	"updated" : "2018-04-05",
 	"slug" : "wolf-vc-content-block",
 	"textdomain" : "wolf-vc-content-block",
 	"name" : "Wolf WPBPB Content Blocks",
@@ -13,7 +13,7 @@
 	"author" : "WolfThemes",
 	"authorURI" : "http://wolfthemes.com",
 	"requires" : "4.4.1",
-	"tested" : "4.9.4",
+	"tested" : "4.9.5",
 	"root" : "..",
 	"cssPath" : "../assets/css",
 	"jsPath" : "../assets/js",

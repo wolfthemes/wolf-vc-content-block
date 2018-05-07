@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 			//'compass',
 			//'autoprefixer',
 			//'cssmin',
-			//'markdown:log',
+			'markdown:log',
 			'string-replace:build',
 			'clean:build',
 			'copyto:build',

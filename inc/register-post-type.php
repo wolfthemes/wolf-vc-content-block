@@ -43,7 +43,7 @@ $args = array(
 	'menu_position' => 5,
 	'taxonomies' => array(),
 	'supports' => array( 'title', 'editor' ),
-	'exclude_from_search' => false,
+	'exclude_from_search' => true,
 	'description' => esc_html__( 'Re-usable content for Visual Composer', '%TEXTDOMAIN%' ),
 	'menu_icon' => 'dashicons-editor-table',
 );
