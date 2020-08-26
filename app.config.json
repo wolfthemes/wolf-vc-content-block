@@ -1,0 +1,14 @@
+{
+	"version": "1.0.8",
+	"updated": "2019-03-05",
+	"slug": "wolf-vc-content-block",
+	"name": "Wolf Content Blocks",
+	"packagename": "WolfVcContentBlock",
+	"created": "2017-06-01",
+	"createdNice": "1st June 2017",
+	"description": "A WordPress plugin to create WPBakery Page Builder blocks.",
+	"link": "http://github.com/wolfthemes/wolf-vc-content-block",
+	"shortlink": "http://wlfthm.es/wolf-vc-content-blocks",
+	"author": "WolfThemes",
+	"authorURI": "http://wolfthemes.com"
+}

@@ -1,3 +1,7 @@
+#### 5th March 2019 - Version 1.0.8
+
+* Tweak: New theme compatiblity
+
 #### 5th April 2018 - Version 1.0.7
 
 * Tweak: Exclude Content Blocks from search by default

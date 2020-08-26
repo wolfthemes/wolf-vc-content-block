@@ -26,7 +26,7 @@ class Wolf_Vc_Content_Block_Admin {
 		add_action( 'admin_init', array( $this, 'update' ), 0 );
 
 		// Plugin update notifications
-		add_action( 'admin_init', array( $this, 'plugin_update' ) );
+		//add_action( 'admin_init', array( $this, 'plugin_update' ) );
 	}
 
 	/**

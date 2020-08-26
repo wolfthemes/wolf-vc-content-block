@@ -16,23 +16,10 @@
  * @category Core
  * @author %AUTHOR%
  *
- * Being a free product, this plugin is distributed as-is without official support.
- * Verified customers however, who have purchased a premium theme
- * at https://themeforest.net/user/Wolf-Themes/portfolio?ref=Wolf-Themes
+ * Verified customers who have purchased a premium theme at https://wlfthm.es/tf/
  * will have access to support for this plugin in the forums
- * https://wolfthemes.ticksy.com/
- *
- * Copyright (C) 2017 Constantin Saguin
- * This WordPress Plugin is a free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * It is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * See https://www.gnu.org/licenses/gpl-3.0.html
- */
+ * https://wlfthm.es/help/
+  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -96,8 +83,8 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function __construct() {
 
-			if ( $this->not_ok_bro() ) {
-				add_action( 'admin_notices', array( $this, 'show_not_ok_bro_notice' ) );
+			if ( $this->is_wrong_theme() ) {
+				add_action( 'admin_notices', array( $this, 'show_wrong_theme_notice' ) );
 				return;
 			}
 
@@ -120,10 +107,11 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					wp_kses_post( __('<strong>%s</strong> requires <strong><a href="%s" target="_blank">%s</a></strong> plugin to be installed and activated.', '%TEXTDOMAIN%' ) ),
+					wp_kses_post( __('<strong>%s</strong> requires <strong><a href="%s" target="_blank">%s</a></strong> and <strong><a href="%s" target="_blank">%s</a></strong> plugins to be installed and activated.', '%TEXTDOMAIN%' ) ),
 						$plugin_data['Name'],
-						'https://codecanyon.net/item/visual-composer-page-builder-for-wordpress/242431?ref=wolf-themes',
+						'https://wlfthm.es/wpbpb',
 						'WPBakery Page Builder',
+						'https://wolfthemes.ticksy.com/article/14866',
 						'Wolf WPBakery Page Builder Extension'
 					) . '</p>
 			</div>';
@@ -132,13 +120,13 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		/**
 		 * Show notice if your plugin is activated but WPBakery Page Builder is not
 		 */
-		public function show_not_ok_bro_notice() {
+		public function show_wrong_theme_notice() {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
 					wp_kses_post( __( 'Sorry, but %s only works with compatible <a target="_blank" href="%s">%s themes</a>.<br><strong>Be sure that you didn\'t change the theme\'s name in the %s file or the theme\'s folder name</strong>.<br>If you want to customize the theme\'s name, you can use a <a target="_blank" href="%s">child theme</a>.', '%TEXTDOMAIN%' ) ),
 						$plugin_data['Name'],
-						'https://themeforest.net/user/wolf-themes/portfolio?ref=wolf-themes',
+						'https://wlfthm.es/tf',
 						'WolfThemes',
 						'style.css',
 						'https://wolfthemes.ticksy.com/article/11659/'
@@ -154,6 +142,9 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
 			add_action( 'init', array( $this, 'init' ), 0 );
 			add_action( 'wp_head', array( $this, 'add_no_follow_tag' ) );
+
+			// Plugin update notifications
+			add_action( 'admin_init', array( $this, 'plugin_update' ) );
 		}
 
 		/**
@@ -238,6 +229,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 
 			if ( $this->is_request( 'admin' ) ) {
 				include_once( 'inc/admin/class-admin.php' );
+				include_once( 'inc/admin/class-metaboxes.php' );
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
@@ -334,10 +326,38 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * Not OK bro
 		 * @return bool
 		 */
-		private function not_ok_bro() {
-			$ok = array( 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase' );
+		private function is_wrong_theme() {
+			$ok = array( 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
+		}
+
+		/**
+		 * Plugin update
+		 */
+		public function plugin_update() {
+
+			if ( ! class_exists( 'WP_GitHub_Updater' ) ) {
+				include_once 'inc/admin/updater.php';
+			}
+
+			$repo = 'wolfthemes/wolf-vc-content-block';
+
+			$config = array(
+				'slug' => plugin_basename( __FILE__ ),
+				'proper_folder_name' => 'wolf-vc-content-block',
+				'api_url' => 'https://api.github.com/repos/' . $repo . '',
+				'raw_url' => 'https://raw.github.com/' . $repo . '/master/',
+				'github_url' => 'https://github.com/' . $repo . '',
+				'zip_url' => 'https://github.com/' . $repo . '/archive/master.zip',
+				'sslverify' => true,
+				'requires' => '5.0',
+				'tested' => '5.5',
+				'readme' => 'README.md',
+				'access_token' => '',
+			);
+
+			new WP_GitHub_Updater( $config );
 		}
 	} // end class
 } // end class check
