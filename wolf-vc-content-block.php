@@ -47,10 +47,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		protected static $_instance = null;
 
-		/**
-		 * @var string
-		 */
-		private $update_url = 'https://plugins.wolfthemes.com/update';
+
 
 		/**
 		 * @var the support forum URL
@@ -182,7 +179,6 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 				'WVCCB_SLUG' => plugin_basename( dirname( __FILE__ ) ),
 				'WVCCB_PATH' => plugin_basename( __FILE__ ),
 				'WVCCB_VERSION' => $this->version,
-				'WVCCB_UPDATE_URL' => $this->update_url,
 				'WVCCB_SUPPORT_URL' => $this->support_url,
 			);
 
@@ -327,7 +323,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * @return bool
 		 */
 		private function is_wrong_theme() {
-			$ok = array( 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze' );
+			$ok = array( 'wolf-supertheme', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze', 'bash' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}

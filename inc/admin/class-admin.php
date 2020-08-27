@@ -24,9 +24,6 @@ class Wolf_Vc_Content_Block_Admin {
 
 		// Update
 		add_action( 'admin_init', array( $this, 'update' ), 0 );
-
-		// Plugin update notifications
-		//add_action( 'admin_init', array( $this, 'plugin_update' ) );
 	}
 
 	/**
@@ -46,19 +43,6 @@ class Wolf_Vc_Content_Block_Admin {
 			// After update hook
 			do_action( 'wolf_vc_content_block_updated' );
 		}
-	}
-
-	/**
-	 * Plugin update
-	 */
-	public function plugin_update() {
-		$plugin_slug = WVCCB_SLUG;
-		$plugin_path = WVCCB_PATH;
-		$remote_path = WVCCB_UPDATE_URL . '/' . $plugin_slug;
-		$plugin_data = get_plugin_data( WVCCB_DIR . '/' . WVCCB_SLUG . '.php' );
-		$current_version = $plugin_data['Version'];
-		include_once( 'class-update.php');
-		new Wolf_Vc_Content_Block_Update( $current_version, $remote_path, $plugin_path );
 	}
 }
 

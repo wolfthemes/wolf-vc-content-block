@@ -1,8 +1,8 @@
 {
-	"version": "1.0.8",
-	"updated": "2019-03-05",
+	"version": "1.0.9",
+	"updated": "2020-08-26",
 	"slug": "wolf-vc-content-block",
-	"name": "Wolf Content Blocks",
+	"name": "WPBakery Page Builder Content Blocks",
 	"packagename": "WolfVcContentBlock",
 	"created": "2017-06-01",
 	"createdNice": "1st June 2017",
