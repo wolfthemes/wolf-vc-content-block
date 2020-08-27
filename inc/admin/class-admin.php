@@ -1,12 +1,12 @@
 <?php
 /**
- * %NAME% Admin.
+ * WPBakery Page Builder Content Blocks Admin.
  *
  * @class Wolf_Vc_Content_Block_Admin
- * @author %AUTHOR%
+ * @author WolfThemes
  * @category Admin
- * @package %PACKAGENAME%/Admin
- * @version %VERSION%
+ * @package WolfVcContentBlock/Admin
+ * @version 1.0.9
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -9,7 +9,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block_Metaboxes' ) ) {
 	 * Contains the main functions for Wolf_Vc_Content_Block_Metaboxes
 	 *
 	 * @class Wolf_Vc_Content_Block_Metaboxes
-	 * @version %VERSION%
+	 * @version 1.0.9
 	 * @since 1.0.0
 	 */
 	class Wolf_Vc_Content_Block_Metaboxes {
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block_Metaboxes' ) ) {
 			// list content block
 			$content_block_posts = get_posts( 'post_type="wvc_content_block"&numberposts=-1' );
 			$content_blocks = array(
-				'' => '&mdash; ' . esc_html__( 'None', '%TEXTDOMAIN%' ) . ' &mdash;',
+				'' => '&mdash; ' . esc_html__( 'None', 'wolf-vc-content-block' ) . ' &mdash;',
 			);
 
 			if ( $content_block_posts ) {
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block_Metaboxes' ) ) {
 				}
 			
 			} else {
-				$content_blocks[0] = esc_html__( 'No Other Content Block Yet', '%TEXTDOMAIN%' );
+				$content_blocks[0] = esc_html__( 'No Other Content Block Yet', 'wolf-vc-content-block' );
 			}
 
 			if ( $is_clone ) {

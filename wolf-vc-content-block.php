@@ -1,20 +1,20 @@
 <?php
 /**
- * Plugin Name: Wolf WPBPB Content Blocks
- * Plugin URI: %LINK%
- * Description: %DESCRIPTION%
- * Version: %VERSION%
- * Author: %AUTHOR%
- * Author URI: %AUTHORURI%
- * Requires at least: %REQUIRES%
- * Tested up to: %TESTED%
+ * Plugin Name: WPBakery Page Builder Content Blocks
+ * Plugin URI: http://github.com/wolfthemes/wolf-vc-content-block
+ * Description: A WordPress plugin to create WPBakery Page Builder blocks.
+ * Version: 1.0.9
+ * Author: WolfThemes
+ * Author URI: http://wolfthemes.com
+ * Requires at least: 5.0
+ * Tested up to: 5.5
  *
- * Text Domain: %TEXTDOMAIN%
+ * Text Domain: wolf-vc-content-block
  * Domain Path: /languages/
  *
- * @package %PACKAGENAME%
+ * @package WolfVcContentBlock
  * @category Core
- * @author %AUTHOR%
+ * @author WolfThemes
  *
  * Verified customers who have purchased a premium theme at https://wlfthm.es/tf/
  * will have access to support for this plugin in the forums
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 	 * Contains the main functions for Wolf_Vc_Content_Block
 	 *
 	 * @class Wolf_Vc_Content_Block
-	 * @version %VERSION%
+	 * @version 1.0.9
 	 * @since 1.0.0
 	 */
 	class Wolf_Vc_Content_Block {
@@ -40,10 +40,10 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '%VERSION%';
+		public $version = '1.0.9';
 
 		/**
-		 * @var %NAME% The single instance of the class
+		 * @var WPBakery Page Builder Content Blocks The single instance of the class
 		 */
 		protected static $_instance = null;
 
@@ -60,13 +60,13 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		public $template_url;
 
 		/**
-		 * Main %NAME% Instance
+		 * Main WPBakery Page Builder Content Blocks Instance
 		 *
-		 * Ensures only one instance of %NAME% is loaded or can be loaded.
+		 * Ensures only one instance of WPBakery Page Builder Content Blocks is loaded or can be loaded.
 		 *
 		 * @static
 		 * @see WVCCB()
-		 * @return %NAME% - Main instance
+		 * @return WPBakery Page Builder Content Blocks - Main instance
 		 */
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		}
 
 		/**
-		 * %NAME% Constructor.
+		 * WPBakery Page Builder Content Blocks Constructor.
 		 */
 		public function __construct() {
 
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					wp_kses_post( __('<strong>%s</strong> requires <strong><a href="%s" target="_blank">%s</a></strong> and <strong><a href="%s" target="_blank">%s</a></strong> plugins to be installed and activated.', '%TEXTDOMAIN%' ) ),
+					wp_kses_post( __('<strong>%s</strong> requires <strong><a href="%s" target="_blank">%s</a></strong> and <strong><a href="%s" target="_blank">%s</a></strong> plugins to be installed and activated.', 'wolf-vc-content-block' ) ),
 						$plugin_data['Name'],
 						'https://wlfthm.es/wpbpb',
 						'WPBakery Page Builder',
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					wp_kses_post( __( 'Sorry, but %s only works with compatible <a target="_blank" href="%s">%s themes</a>.<br><strong>Be sure that you didn\'t change the theme\'s name in the %s file or the theme\'s folder name</strong>.<br>If you want to customize the theme\'s name, you can use a <a target="_blank" href="%s">child theme</a>.', '%TEXTDOMAIN%' ) ),
+					wp_kses_post( __( 'Sorry, but %s only works with compatible <a target="_blank" href="%s">%s themes</a>.<br><strong>Be sure that you didn\'t change the theme\'s name in the %s file or the theme\'s folder name</strong>.<br>If you want to customize the theme\'s name, you can use a <a target="_blank" href="%s">child theme</a>.', 'wolf-vc-content-block' ) ),
 						$plugin_data['Name'],
 						'https://wlfthm.es/tf',
 						'WolfThemes',
@@ -242,14 +242,14 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		}
 
 		/**
-		 * Function used to Init %NAME% Template Functions - This makes them pluggable by plugins and themes.
+		 * Function used to Init WPBakery Page Builder Content Blocks Template Functions - This makes them pluggable by plugins and themes.
 		 */
 		public function include_template_functions() {
 			//include_once( 'inc/frontend/template-functions.php' );
 		}
 
 		/**
-		 * Init %NAME% when WordPress Initialises.
+		 * Init WPBakery Page Builder Content Blocks when WordPress Initialises.
 		 */
 		public function init() {
 
@@ -296,8 +296,8 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function load_plugin_textdomain() {
 
-			$domain = '%TEXTDOMAIN%';
-			$locale = apply_filters( '%TEXTDOMAIN%', get_locale(), $domain );
+			$domain = 'wolf-vc-content-block';
+			$locale = apply_filters( 'wolf-vc-content-block', get_locale(), $domain );
 			load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
 			load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}

@@ -1,13 +1,13 @@
 <?php
 /**
- * %NAME% Uninstall
+ * WPBakery Page Builder Content Blocks Uninstall
  *
- * Uninstalling %NAME%
+ * Uninstalling WPBakery Page Builder Content Blocks
  *
- * @author %AUTHOR%
+ * @author WolfThemes
  * @category Core
- * @package %PACKAGENAME%/Uninstaller
- * @version %VERSION%
+ * @package WolfVcContentBlock/Uninstaller
+ * @version 1.0.9
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

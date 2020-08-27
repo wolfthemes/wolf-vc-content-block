@@ -1,11 +1,11 @@
 <?php
 /**
- * %NAME% register taxonomy
+ * WPBakery Page Builder Content Blocks register taxonomy
  *
- * @author %AUTHOR%
+ * @author WolfThemes
  * @category Core
- * @package %PACKAGENAME%/Admin
- * @version %VERSION%
+ * @package WolfVcContentBlock/Admin
+ * @version 1.0.9
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,21 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /* Content Block Taxonomy */
 $labels = array(
-	'name' => esc_html__( 'Content Block Categories', '%TEXTDOMAIN%' ),
-	'singular_name' => esc_html__( 'Content Block Category', '%TEXTDOMAIN%' ),
-	'search_items' => esc_html__( 'Search Content Block Categories', '%TEXTDOMAIN%' ),
-	'popular_items' => esc_html__( 'Popular Content Block Categories', '%TEXTDOMAIN%' ),
-	'all_items' => esc_html__( 'All Content Block Categories', '%TEXTDOMAIN%' ),
-	'parent_item' => esc_html__( 'Parent Content Block Category', '%TEXTDOMAIN%' ),
-	'parent_item_colon' => esc_html__( 'Parent Content Block Category:', '%TEXTDOMAIN%' ),
-	'edit_item' => esc_html__( 'Edit Content Block Category', '%TEXTDOMAIN%' ),
-	'update_item' => esc_html__( 'Update Content Block Category', '%TEXTDOMAIN%' ),
-	'add_new_item' => esc_html__( 'Add New Content Block Category', '%TEXTDOMAIN%' ),
-	'new_item_name' => esc_html__( 'New Content Block Category', '%TEXTDOMAIN%' ),
-	'separate_items_with_commas' => esc_html__( 'Separate content block categories with commas', '%TEXTDOMAIN%' ),
-	'add_or_remove_items' => esc_html__( 'Add or remove content block categories', '%TEXTDOMAIN%' ),
-	'choose_from_most_used' => esc_html__( 'Choose from the most used content block categories', '%TEXTDOMAIN%' ),
-	'menu_name' => esc_html__( 'Categories', '%TEXTDOMAIN%' ),
+	'name' => esc_html__( 'Content Block Categories', 'wolf-vc-content-block' ),
+	'singular_name' => esc_html__( 'Content Block Category', 'wolf-vc-content-block' ),
+	'search_items' => esc_html__( 'Search Content Block Categories', 'wolf-vc-content-block' ),
+	'popular_items' => esc_html__( 'Popular Content Block Categories', 'wolf-vc-content-block' ),
+	'all_items' => esc_html__( 'All Content Block Categories', 'wolf-vc-content-block' ),
+	'parent_item' => esc_html__( 'Parent Content Block Category', 'wolf-vc-content-block' ),
+	'parent_item_colon' => esc_html__( 'Parent Content Block Category:', 'wolf-vc-content-block' ),
+	'edit_item' => esc_html__( 'Edit Content Block Category', 'wolf-vc-content-block' ),
+	'update_item' => esc_html__( 'Update Content Block Category', 'wolf-vc-content-block' ),
+	'add_new_item' => esc_html__( 'Add New Content Block Category', 'wolf-vc-content-block' ),
+	'new_item_name' => esc_html__( 'New Content Block Category', 'wolf-vc-content-block' ),
+	'separate_items_with_commas' => esc_html__( 'Separate content block categories with commas', 'wolf-vc-content-block' ),
+	'add_or_remove_items' => esc_html__( 'Add or remove content block categories', 'wolf-vc-content-block' ),
+	'choose_from_most_used' => esc_html__( 'Choose from the most used content block categories', 'wolf-vc-content-block' ),
+	'menu_name' => esc_html__( 'Categories', 'wolf-vc-content-block' ),
 );
 
 $args = array(

@@ -2,10 +2,10 @@
 /**
  * Frontend functions
  *
- * @author %AUTHOR%
+ * @author WolfThemes
  * @category Frontend
- * @package %PACKAGENAME%/Frontend
- * @version %VERSION%
+ * @package WolfVcContentBlock/Frontend
+ * @version 1.0.9
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
