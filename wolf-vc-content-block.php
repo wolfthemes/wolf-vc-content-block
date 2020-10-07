@@ -3,7 +3,7 @@
  * Plugin Name: WPBakery Page Builder Content Blocks
  * Plugin URI: http://github.com/wolfthemes/wolf-vc-content-block
  * Description: A WordPress plugin to create WPBakery Page Builder blocks.
- * Version: 1.0.9
+ * Version: 1.1.0
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
  * Requires at least: 5.0
@@ -19,11 +19,9 @@
  * Verified customers who have purchased a premium theme at https://wlfthm.es/tf/
  * will have access to support for this plugin in the forums
  * https://wlfthm.es/help/
-  */
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 	/**
@@ -32,7 +30,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 	 * Contains the main functions for Wolf_Vc_Content_Block
 	 *
 	 * @class Wolf_Vc_Content_Block
-	 * @version 1.0.9
+	 * @version 1.1.0
 	 * @since 1.0.0
 	 */
 	class Wolf_Vc_Content_Block {
@@ -40,7 +38,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.0.9';
+		public $version = '1.1.0';
 
 		/**
 		 * @var WPBakery Page Builder Content Blocks The single instance of the class
@@ -104,13 +102,13 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					wp_kses_post( __('<strong>%s</strong> requires <strong><a href="%s" target="_blank">%s</a></strong> and <strong><a href="%s" target="_blank">%s</a></strong> plugins to be installed and activated.', 'wolf-vc-content-block' ) ),
-						$plugin_data['Name'],
-						'https://wlfthm.es/wpbpb',
-						'WPBakery Page Builder',
-						'https://wolfthemes.ticksy.com/article/14866',
-						'Wolf WPBakery Page Builder Extension'
-					) . '</p>
+				wp_kses_post( __( '<strong>%1$s</strong> requires <strong><a href="%2$s" target="_blank">%3$s</a></strong> and <strong><a href="%4$s" target="_blank">%5$s</a></strong> plugins to be installed and activated.', 'wolf-vc-content-block' ) ),
+				$plugin_data['Name'],
+				'https://wlfthm.es/wpbpb',
+				'WPBakery Page Builder',
+				'https://wolfthemes.ticksy.com/article/14866',
+				'Wolf WPBakery Page Builder Extension'
+			) . '</p>
 			</div>';
 		}
 
@@ -121,13 +119,13 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$plugin_data = get_plugin_data( __FILE__ );
 			echo '<div class="notice notice-warning">
 				<p>' . sprintf(
-					wp_kses_post( __( 'Sorry, but %s only works with compatible <a target="_blank" href="%s">%s themes</a>.<br><strong>Be sure that you didn\'t change the theme\'s name in the %s file or the theme\'s folder name</strong>.<br>If you want to customize the theme\'s name, you can use a <a target="_blank" href="%s">child theme</a>.', 'wolf-vc-content-block' ) ),
-						$plugin_data['Name'],
-						'https://wlfthm.es/tf',
-						'WolfThemes',
-						'style.css',
-						'https://wolfthemes.ticksy.com/article/11659/'
-					) . '</p>
+				wp_kses_post( __( 'Sorry, but %1$s only works with compatible <a target="_blank" href="%2$s">%3$s themes</a>.<br><strong>Be sure that you didn\'t change the theme\'s name in the %4$s file or the theme\'s folder name</strong>.<br>If you want to customize the theme\'s name, you can use a <a target="_blank" href="%5$s">child theme</a>.', 'wolf-vc-content-block' ) ),
+				$plugin_data['Name'],
+				'https://wlfthm.es/tf',
+				'WolfThemes',
+				'style.css',
+				'https://wolfthemes.ticksy.com/article/11659/'
+			) . '</p>
 			</div>';
 		}
 
@@ -171,14 +169,14 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		private function define_constants() {
 
 			$constants = array(
-				'WVCCB_DEV' => false,
-				'WVCCB_DIR' => $this->plugin_path(),
-				'WVCCB_URI' => $this->plugin_url(),
-				'WVCCB_CSS' => $this->plugin_url() . '/assets/css',
-				'WVCCB_JS' => $this->plugin_url() . '/assets/js',
-				'WVCCB_SLUG' => plugin_basename( dirname( __FILE__ ) ),
-				'WVCCB_PATH' => plugin_basename( __FILE__ ),
-				'WVCCB_VERSION' => $this->version,
+				'WVCCB_DEV'         => false,
+				'WVCCB_DIR'         => $this->plugin_path(),
+				'WVCCB_URI'         => $this->plugin_url(),
+				'WVCCB_CSS'         => $this->plugin_url() . '/assets/css',
+				'WVCCB_JS'          => $this->plugin_url() . '/assets/js',
+				'WVCCB_SLUG'        => plugin_basename( dirname( __FILE__ ) ),
+				'WVCCB_PATH'        => plugin_basename( __FILE__ ),
+				'WVCCB_VERSION'     => $this->version,
 				'WVCCB_SUPPORT_URL' => $this->support_url,
 			);
 
@@ -189,8 +187,9 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 
 		/**
 		 * Define constant if not already set
-		 * @param  string $name
-		 * @param  string|bool $value
+		 *
+		 * @param  string      $name The constant name.
+		 * @param  string|bool $value The constant value.
 		 */
 		private function define( $name, $value ) {
 			if ( ! defined( $name ) ) {
@@ -201,17 +200,18 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		/**
 		 * What type of request is this?
 		 * string $type ajax, frontend or admin
+		 *
 		 * @return bool
 		 */
 		private function is_request( $type ) {
 			switch ( $type ) {
-				case 'admin' :
+				case 'admin':
 					return is_admin();
-				case 'ajax' :
+				case 'ajax':
 					return defined( 'DOING_AJAX' );
-				case 'cron' :
+				case 'cron':
 					return defined( 'DOING_CRON' );
-				case 'frontend' :
+				case 'frontend':
 					return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 			}
 		}
@@ -224,8 +224,8 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			// Functions used in frontend and admin
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once( 'inc/admin/class-admin.php' );
-				include_once( 'inc/admin/class-metaboxes.php' );
+				include_once 'inc/admin/class-admin.php';
+				include_once 'inc/admin/class-metaboxes.php';
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
@@ -237,15 +237,15 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * Include required frontend files.
 		 */
 		public function frontend_includes() {
-			include_once( 'inc/frontend/frontend-functions.php' );
-			include_once( 'inc/frontend/shortcode.php' );
+			include_once 'inc/frontend/frontend-functions.php';
+			include_once 'inc/frontend/shortcode.php';
 		}
 
 		/**
 		 * Function used to Init WPBakery Page Builder Content Blocks Template Functions - This makes them pluggable by plugins and themes.
 		 */
 		public function include_template_functions() {
-			//include_once( 'inc/frontend/template-functions.php' );
+			// include_once( 'inc/frontend/template-functions.php' );
 		}
 
 		/**
@@ -271,14 +271,14 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * Register post type
 		 */
 		public function register_post_type() {
-			include_once( 'inc/register-post-type.php' );
+			include_once 'inc/register-post-type.php';
 		}
 
 		/**
 		 * Register taxonomy
 		 */
 		public function register_taxonomy() {
-			include_once( 'inc/register-taxonomy.php' );
+			include_once 'inc/register-taxonomy.php';
 		}
 
 		/**
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 */
 		public function add_no_follow_tag() {
 			if ( is_singular( 'wvc_content_block' ) ) {
-				echo "<!-- WolfWPBPBContentBlock No Follow -->" . "\n";
+				echo '<!-- WolfWPBPBContentBlock No Follow -->' . "\n";
 				echo '<meta name="robots" content="noindex,follow" />' . "\n";
 			}
 		}
@@ -299,11 +299,12 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$domain = 'wolf-vc-content-block';
 			$locale = apply_filters( 'wolf-vc-content-block', get_locale(), $domain );
 			load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
-			load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}
 
 		/**
 		 * Get the plugin url.
+		 *
 		 * @return string
 		 */
 		public function plugin_url() {
@@ -312,6 +313,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 
 		/**
 		 * Get the plugin path.
+		 *
 		 * @return string
 		 */
 		public function plugin_path() {
@@ -320,10 +322,11 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 
 		/**
 		 * Not OK bro
+		 *
 		 * @return bool
 		 */
 		private function is_wrong_theme() {
-			$ok = array( 'wolf-supertheme', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze', 'bash' );
+			$ok = array( 'wolf-supertheme', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze', 'hazal' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}
@@ -340,17 +343,17 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 			$repo = 'wolfthemes/wolf-vc-content-block';
 
 			$config = array(
-				'slug' => plugin_basename( __FILE__ ),
+				'slug'               => plugin_basename( __FILE__ ),
 				'proper_folder_name' => 'wolf-vc-content-block',
-				'api_url' => 'https://api.github.com/repos/' . $repo . '',
-				'raw_url' => 'https://raw.github.com/' . $repo . '/master/',
-				'github_url' => 'https://github.com/' . $repo . '',
-				'zip_url' => 'https://github.com/' . $repo . '/archive/master.zip',
-				'sslverify' => true,
-				'requires' => '5.0',
-				'tested' => '5.5',
-				'readme' => 'README.md',
-				'access_token' => '',
+				'api_url'            => 'https://api.github.com/repos/' . $repo . '',
+				'raw_url'            => 'https://raw.github.com/' . $repo . '/master/',
+				'github_url'         => 'https://github.com/' . $repo . '',
+				'zip_url'            => 'https://github.com/' . $repo . '/archive/master.zip',
+				'sslverify'          => true,
+				'requires'           => '5.0',
+				'tested'             => '5.5',
+				'readme'             => 'README.md',
+				'access_token'       => '',
 			);
 
 			new WP_GitHub_Updater( $config );

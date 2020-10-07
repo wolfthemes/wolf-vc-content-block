@@ -1,14 +1,14 @@
 {
-	"version": "1.0.9",
-	"updated": "2020-08-26",
-	"slug": "wolf-vc-content-block",
-	"name": "WPBakery Page Builder Content Blocks",
-	"packagename": "WolfVcContentBlock",
-	"created": "2017-06-01",
-	"createdNice": "1st June 2017",
-	"description": "A WordPress plugin to create WPBakery Page Builder blocks.",
-	"link": "http://github.com/wolfthemes/wolf-vc-content-block",
-	"shortlink": "http://wlfthm.es/wolf-vc-content-blocks",
-	"author": "WolfThemes",
-	"authorURI": "http://wolfthemes.com"
+  "version": "1.1.0",
+  "updated": "2020-10-07",
+  "slug": "wolf-vc-content-block",
+  "name": "WPBakery Page Builder Content Blocks",
+  "packagename": "WolfVcContentBlock",
+  "created": "2017-06-01",
+  "createdNice": "1st June 2017",
+  "description": "A WordPress plugin to create WPBakery Page Builder blocks.",
+  "link": "https://github.com/wolfthemes/wolf-vc-content-block",
+  "shortlink": "https://wlfthm.es/wpbpb-content-blocks",
+  "author": "WolfThemes",
+  "authorURI": "https://wolfthemes.com"
 }

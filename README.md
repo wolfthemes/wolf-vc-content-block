@@ -3,7 +3,7 @@
 A WordPress plugin to create WPBakery Page Builder blocks.
 
 ## Plugin page
-http://github.com/wolfthemes/wolf-vc-content-block
+https://github.com/wolfthemes/wolf-vc-content-block
 
 ## Support
 Verified customers who have purchased a premium theme on [ThemeForest](http://wlfthm.es/tf)
