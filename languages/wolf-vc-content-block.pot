@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPBakery Page Builder Content Blocks package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPBakery Page Builder Content Blocks 1.1.0\n"
+"Project-Id-Version: WPBakery Page Builder Content Blocks 1.1.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wolf-vc-content-block\n"
-"POT-Creation-Date: 2020-10-07 12:23:42+00:00\n"
+"POT-Creation-Date: 2020-12-10 14:40:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -234,22 +234,22 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: pack/wolf-vc-content-block/wolf-vc-content-block.php:107
-#: wolf-vc-content-block.php:107
+#: pack/wolf-vc-content-block/wolf-vc-content-block.php:105
+#: wolf-vc-content-block.php:105
 msgid ""
-"<strong>%s</strong> requires <strong><a href=\"%s\" "
-"target=\"_blank\">%s</a></strong> and <strong><a href=\"%s\" "
-"target=\"_blank\">%s</a></strong> plugins to be installed and activated."
+"<strong>%1$s</strong> requires <strong><a href=\"%2$s\" "
+"target=\"_blank\">%3$s</a></strong> and <strong><a href=\"%4$s\" "
+"target=\"_blank\">%5$s</a></strong> plugins to be installed and activated."
 msgstr ""
 
-#: pack/wolf-vc-content-block/wolf-vc-content-block.php:124
-#: wolf-vc-content-block.php:124
+#: pack/wolf-vc-content-block/wolf-vc-content-block.php:122
+#: wolf-vc-content-block.php:122
 msgid ""
-"Sorry, but %s only works with compatible <a target=\"_blank\" "
-"href=\"%s\">%s themes</a>.<br><strong>Be sure that you didn't change the "
-"theme's name in the %s file or the theme's folder name</strong>.<br>If you "
-"want to customize the theme's name, you can use a <a target=\"_blank\" "
-"href=\"%s\">child theme</a>."
+"Sorry, but %1$s only works with compatible <a target=\"_blank\" "
+"href=\"%2$s\">%3$s themes</a>.<br><strong>Be sure that you didn't change "
+"the theme's name in the %4$s file or the theme's folder "
+"name</strong>.<br>If you want to customize the theme's name, you can use a "
+"<a target=\"_blank\" href=\"%5$s\">child theme</a>."
 msgstr ""
 
 #. Plugin Name of the plugin/theme

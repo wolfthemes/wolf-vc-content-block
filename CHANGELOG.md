@@ -1,5 +1,9 @@
 # Changelog
 
+#### 11th December 2020 - Version 1.1.1
+
+-   Tweak: New theme compatiblity
+
 #### 7th March 2020 - Version 1.1.0
 
 -   Tweak: Added config files

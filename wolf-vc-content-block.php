@@ -3,7 +3,7 @@
  * Plugin Name: WPBakery Page Builder Content Blocks
  * Plugin URI: http://github.com/wolfthemes/wolf-vc-content-block
  * Description: A WordPress plugin to create WPBakery Page Builder blocks.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
  * Requires at least: 5.0
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 	 * Contains the main functions for Wolf_Vc_Content_Block
 	 *
 	 * @class Wolf_Vc_Content_Block
-	 * @version 1.1.0
+	 * @version 1.1.1
 	 * @since 1.0.0
 	 */
 	class Wolf_Vc_Content_Block {
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.1.0';
+		public $version = '1.1.1';
 
 		/**
 		 * @var WPBakery Page Builder Content Blocks The single instance of the class
@@ -326,7 +326,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		 * @return bool
 		 */
 		private function is_wrong_theme() {
-			$ok = array( 'wolf-supertheme', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze', 'hazal' );
+			$ok = array( 'wolf-supertheme', 'wolf-2018', 'protheme', 'iyo', 'loud', 'tune', 'retine', 'racks', 'andre', 'hares', 'glytch', 'superflick', 'phase', 'zample', 'prequelle', 'slikk', 'vonzot', 'deadlift', 'hyperbent', 'kayo', 'reinar', 'snakepit', 'alceste', 'fradence', 'firemaster', 'decibel', 'tattoopress', 'tattoopro', 'milu', 'beatit', 'daeron', 'herion', 'oglin', 'staaw', 'bronze', 'hazal', 'craftz' );
 
 			return ( ! in_array( esc_attr( sanitize_title_with_dashes( get_template() ) ), $ok ) );
 		}

@@ -33,7 +33,7 @@ function wccb_get_the_ID() {
 	} else {
 		$post_id = get_the_ID();
 	}
-	
+
 	return $post_id;
 }
 
@@ -54,20 +54,20 @@ function wccb_block( $post_id ) {
 
 		/* A/B test */
 		if ( isset( $_COOKIE['wvc_content_block_split_clone_' . $post_id] ) ) {
-			
+
 			$output_id = absint( $_COOKIE['wvc_content_block_split_clone_' . $post_id] );
-		
+
 		} elseif ( $clone_id ) {
-			
+
 			$output_id = rand( 0, 1 ) ? $post_id : $clone_id;
 		}
 
 		if ( $clone_id ) {
 
 			$exp_id = get_post_meta( $post_id, '_wvc_content_block_go_experiment_id', true );
-			
+
 			$exp = $exp_id . '.' . $output_id;
-			
+
 			$output .= '<script>';
 
 			// Set cookie if needed
@@ -117,7 +117,7 @@ function wvccb_js_remove_wpautop( $content, $autop = false ) {
  * Not used
  */
 function  wccp_get_block_ids_in_page( $post_id = null ) {
-	
+
 	$post_id = ( isset( $post_id ) ) ? $post_id : wccb_get_the_ID();
 
 	$post = get_post( $post_id );
@@ -128,7 +128,7 @@ function  wccp_get_block_ids_in_page( $post_id = null ) {
 	$block_ids = array();
 
 	if (   preg_match_all( '/'.$pattern.'/s', $post_content, $matches ) ) {
-		
+
 		if ( isset( $matches[0] ) ) {
 
 			foreach ( $matches[0] as $match ) {
@@ -157,13 +157,13 @@ function wccb_set_block_experiment_trackers( $ga_snippet_require ) {
 	}
 
 	$post_id = wccb_get_the_ID();
-	
+
 	if ( array() !== wccp_get_block_ids_in_page( $post_id ) ) {
-		
+
 		$block_ids = wccp_get_block_ids_in_page( $post_id );
 
 		foreach ( $block_ids as $post_id ) {
-			
+
 			$clone_id = get_post_meta( $post_id, '_wvc_content_block_split_clone_id', true );
 			$exp_id = get_post_meta( $post_id, '_wvc_content_block_go_experiment_id', true );
 			$cookie_id = 'wvc_content_block_split_clone_' . $post_id;
@@ -201,11 +201,11 @@ function wccb_set_block_experiment_cookies( $post_id ) {
 	$post_id = wccb_get_the_ID();
 
 	if ( array() !== wccp_get_block_ids_in_page( $post_id ) ) {
-		
+
 		$block_ids = wccp_get_block_ids_in_page( $post_id );
 
 		foreach ( $block_ids as $post_id ) {
-	
+
 			$clone_id = get_post_meta( $post_id, '_wvc_content_block_split_clone_id', true );
 			$cookie_id = 'wvc_content_block_split_clone_' . $post_id;
 			$cookie_duration = 7 * DAY_IN_SECONDS;
