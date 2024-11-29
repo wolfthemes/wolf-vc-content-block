@@ -1,5 +1,9 @@
 # Changelog
 
+#### 29th November 2024 - Version 1.1.2
+
+-   Improvement: Specify the content block post type in the wpml_object_id filter to retrieve WPML content block translated version
+
 #### 11th December 2020 - Version 1.1.1
 
 -   Tweak: New theme compatiblity

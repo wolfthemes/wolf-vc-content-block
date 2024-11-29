@@ -3,11 +3,11 @@
  * Plugin Name: WPBakery Page Builder Content Blocks
  * Plugin URI: http://github.com/wolfthemes/wolf-vc-content-block
  * Description: A WordPress plugin to create WPBakery Page Builder blocks.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
- * Requires at least: 5.0
- * Tested up to: 5.5
+ * Requires at least: 6.0
+ * Tested up to: 6.6
  *
  * Text Domain: wolf-vc-content-block
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 	 * Contains the main functions for Wolf_Vc_Content_Block
 	 *
 	 * @class Wolf_Vc_Content_Block
-	 * @version 1.1.1
+	 * @version 1.1.2
 	 * @since 1.0.0
 	 */
 	class Wolf_Vc_Content_Block {
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Wolf_Vc_Content_Block' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.1.1';
+		public $version = '1.1.2';
 
 		/**
 		 * @var WPBakery Page Builder Content Blocks The single instance of the class

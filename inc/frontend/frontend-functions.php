@@ -42,7 +42,7 @@ function wccb_get_the_ID() {
  */
 function wccb_block( $post_id ) {
 
-	$post_id = absint( apply_filters( 'wpml_object_id', $post_id, 'post' ) ); // WPML compatibility
+	$post_id = absint( apply_filters( 'wpml_object_id', $post_id, 'wvc_content_block' ) ); // WPML compatibility
 
 	// Be sure that the post exists and that it is not the current post
 	if ( get_post_status( $post_id ) && $post_id !== get_the_ID() && 'wvc_content_block' === get_post_type( $post_id ) ) {
